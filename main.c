@@ -1,61 +1,101 @@
-#include "myBank.c"
+#include "myBank.h"
 #include <stdio.h>
 
 int main(){
-    printf("please choose a transaction type:\n O-Open Account \n B Balance inquiry\n D-Deposit\n W-Withdraawal \n C-Close Account\n I-Interst\n P-Print \n E-Exit");
+    printf("\nPlease choose a transaction type:\n O-Open Account \n B-Balance Inquiry\n D-Deposit\n W-Withdrawal \n C-Close Account\n I-Interest\n P-Print \n E-Exit\n");
     char temp;
-    scanf("%c", &temp);
+    scanf(" %c", &temp);
     while(temp!='E'){
         if(temp=='O'){
-            printf("initial deposit?:");
+            printf("Please enter amount for deposit:");
             double x;
-            scanf("%lf",&x);
+            int flag = scanf("%lf",&x);
+            if(flag == 1){
             new(x);
+          }
+            if(flag != 1){
+            printf(" Failed to read the amount\n");
+   }
  }     
-        if(temp=='B'){
-        printf("Account number?:");
+       else if(temp=='B'){
+        printf("Please enter account number:");
         int x;
-        scanf("%d",&x);
+      int flag = scanf("%d",&x);
+       if(flag == 1){
         info(x);
+        }
+        if(flag != 1){
+            printf(" Failed to read the account number\n");
     }
-        if(temp=='D'){
-           printf("account number?:");
+ }
+    
+    
+        else if(temp=='D'){
+           printf("Please enter account number:");
            int x;
-           scanf("%d",&x);
-           double h;
-           printf("Amount?:");
-           add(x,h);
+          int flag = scanf("%d",&x);
+          if(flag !=1){
+          printf(" Failed to read the account number\n");
+    }
+    else{
+    	
+        add(x);
         }
-        if(temp=='W'){
-           printf("account number?:");
+    }  
+        
+        else if(temp=='W'){
+           printf("Please enter account number:");
            int x;
-           scanf("%d",&x);
-           double h;
-           printf("Amount?:");
-           sub(x,h);  
+           int flag = scanf("%d",&x);
+           if(flag !=1){
+           printf(" Failed to read the account number\n");
+    }
+    else {
+           sub(x);  
+           }
         }
-        if(temp=='C'){
-          printf("account number?:");
+        else if(temp=='C'){
+          printf("Please enter account number:");
            int x;
-           scanf("%d",&x);
-           close(x);   
+           int flag = scanf("%d",&x);
+                if(flag !=1){
+           printf(" Failed to read the account number\n");
+             
+        } 
+        else{
+        close(x);
         }
-        if(temp=='I'){
-            printf("interest rate?:");
-            double in;
-            scanf("%lf",&in);
-            model(in);
-
         }
-        if(temp=='P'){
+        else if(temp=='I'){
+            printf("Please enter interest rate:");
+            int in;
+            int flag = scanf("%d",&in);
+           if(flag == 1){
+           if(in<0){
+           printf("Invalid interest rate\n");
+           }
+        else{
+        modol(in);
+        }
+        }
+        if(flag != 1){
+            printf(" Failed to read the interest rate\n");
+    }
+        }
+        
+        else if(temp=='P'){
             print();
         }
+        
+        else{
+        printf("Invalid transaction type\n");
 
-    scanf("%c",temp);
+        }
+	printf("\nPlease choose a transaction type:\n O-Open Account \n B-Balance Inquiry\n D-Deposit\n W-Withdrawal \n C-Close Account\n I-Interest\n P-Print \n E-Exit\n");
+    scanf(" %c",&temp);
 
     }
-    end();
-
-}
+  endd();
+  return 0;
 }
 

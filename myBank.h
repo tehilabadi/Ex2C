@@ -2,11 +2,11 @@
 #define _MYBANK_H__
 void new(double money);
 void info(int num);
-void add(int num,double money);
-void sub(int num , double money);
+void add(int num);
+void sub(int num);
 void close(int num);
-void modol(double rate);
+void modol(int rate);
 void print();
-void end();
+void endd();
 #endif
 
